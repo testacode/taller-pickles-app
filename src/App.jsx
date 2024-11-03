@@ -49,7 +49,12 @@ const App = () => {
     <DataContextProvider value={contextValue}>
       <Container width="100%">
         <Flex justify="space-between" width="100%" align="center">
-          <Heading size="4xl" mb="1em" mt="1em">
+          <Heading
+            size="4xl"
+            mb="1em"
+            mt="1em"
+            color={{ base: "black", _dark: "white" }}
+          >
             Modificá tu remera 👕
           </Heading>
           <ColorModeButton
