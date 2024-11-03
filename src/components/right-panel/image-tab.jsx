@@ -58,8 +58,8 @@ export const ImageTab = () => {
           />
         </Flex>
         <Input
-          type="text"
           placeholder="Texto de arriba"
+          type="text"
           value={data[shirt_side].texto_arriba}
           onChange={(e) =>
             updateData({
