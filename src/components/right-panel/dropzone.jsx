@@ -80,7 +80,7 @@ export const Dropzone = () => {
       <Flex {...getRootProps({ style })} flexDir="column">
         <Input {...getInputProps()} />
         <LuImagePlus size="100" color="grey" />
-        <Text color="grey">Hace click o arrastra una imagen hasta aca</Text>
+        <Text color="grey">Tocá o arrastrá una imágen hasta acá</Text>
       </Flex>
     </Flex>
   );
