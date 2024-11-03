@@ -1,6 +1,6 @@
+import { COLOR_REMERA } from "../../constants";
 import { Flex, IconButton, Text } from "@chakra-ui/react";
 import { useDataContext } from "../../context/DataContext";
-import { COLOR_REMERA } from "../../constants";
 
 export const ColorTab = () => {
   const { data, updateData } = useDataContext();
@@ -12,8 +12,8 @@ export const ColorTab = () => {
       <Flex
         bg="rgba(129, 131, 129, 0.1)"
         flexDir="row"
-        gap="6"
-        p="1em"
+        gap={["4", "6"]}
+        p={["0.5em", "1em"]}
         rounded="l3"
         width="100%"
         wrap="wrap"
