@@ -33,6 +33,7 @@ const rejectStyle = {
 export const Dropzone = () => {
   const { data, updateData } = useDataContext();
   const { shirt_side } = data;
+
   const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
     useDropzone({
       accept: {
@@ -68,7 +69,7 @@ export const Dropzone = () => {
     <Flex
       align="center"
       bg="gray.muted"
-      className="container"
+      className="uploader"
       flexDir="column"
       gap="2"
       justify="center"
@@ -76,7 +77,7 @@ export const Dropzone = () => {
       p="4"
       rounded="l3"
     >
-      <Flex {...getRootProps({ style })}>
+      <Flex {...getRootProps({ style })} flexDir="column">
         <Input {...getInputProps()} />
         <LuImagePlus size="100" color="grey" />
         <Text color="grey">Hace click o arrastra una imagen hasta aca</Text>
