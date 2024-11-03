@@ -1,5 +1,3 @@
-import { Checkbox } from "../ui/checkbox";
-import { Dropzone } from "./dropzone";
 import {
   Flex,
   Highlight,
@@ -8,9 +6,12 @@ import {
   Tabs,
   Text,
 } from "@chakra-ui/react";
+import { Checkbox } from "../ui/checkbox";
+import { CloseButton } from "../ui/close-button";
+import { Dropzone } from "./dropzone";
 import { LuImage, LuPalette, LuSettings2 } from "react-icons/lu";
+import { useCallback, useMemo } from "react";
 import { useDataContext } from "../../context/DataContext";
-import { useMemo } from "react";
 
 const TabTrigger = ({ value, icon: Icon, label }) => (
   <Tabs.Trigger value={value} justifyContent="center">
@@ -32,6 +33,15 @@ export const RightPanel = () => {
 
   const { shirt_side } = data;
 
+  const removeImage = useCallback(() => {
+    updateData({
+      [shirt_side]: {
+        ...data[shirt_side],
+        imagen: null,
+      },
+    });
+  }, [data, shirt_side, updateData]);
+
   return (
     <Tabs.Root defaultValue="image" variant="plain">
       <Tabs.List
@@ -48,7 +58,17 @@ export const RightPanel = () => {
         ))}
       </Tabs.List>
       <Tabs.Content value="image">
-        <Text>Subi una imagen y/o agrega un texto</Text>
+        <Flex justify="space-between">
+          <Text>Subi una imagen y/o agrega un texto</Text>
+          {data[shirt_side].imagen && (
+            <CloseButton
+              colorPalette="red"
+              onClick={removeImage}
+              size="2xs"
+              variant="solid"
+            />
+          )}
+        </Flex>
         {/* Dropzone */}
         <Dropzone />
         <Text textStyle="xs" mb="1em" color="fg.subtle">
