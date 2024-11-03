@@ -17,7 +17,7 @@ export const LeftPanel = () => {
 
   return (
     <Flex className="left-panel" flexDir="column">
-      <Center flexDirection="column" gap="1em">
+      <Center className="left-panel-header" flexDirection="column" gap="1em">
         <Flex gap="1em">
           <Text fontWeight="bold">Elegi el lado de la estampa</Text>
           {/* Switch del frente y espalda de la remera */}
