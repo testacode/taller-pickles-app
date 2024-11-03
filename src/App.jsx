@@ -1,6 +1,6 @@
-import { Card, Container, Flex, Heading } from "@chakra-ui/react";
-import { ColorModeButton } from "./components/ui/color-mode";
+import { Card, Container, Flex } from "@chakra-ui/react";
 import { DataContextProvider } from "./context/DataContext";
+import { Header } from "./components/header/header";
 import { LeftPanel } from "./components/left-panel/left-panel";
 import { RightPanel } from "./components/right-panel/right-panel";
 import { SHIRT_SIDE } from "./constants";
@@ -47,28 +47,9 @@ const App = () => {
 
   return (
     <DataContextProvider value={contextValue}>
-      <Container width="100%">
-        <Flex justify="space-between" width="100%" align="center">
-          <Heading
-            size="4xl"
-            mb="1em"
-            mt="1em"
-            color={{ base: "black", _dark: "white" }}
-          >
-            Modificá tu remera 👕
-          </Heading>
-          <ColorModeButton
-            color={{ _dark: "white", base: "black" }}
-            bg={{ base: "white", _dark: "black" }}
-          />
-        </Flex>
-
-        <Flex
-          width="100%"
-          gap="1em"
-          alignContent="flex-start"
-          className="wrapper"
-        >
+      <Container width="100%" className="taller-pickles-app">
+        <Header />
+        <Flex className="body" width="100%" gap="1em" alignContent="flex-start">
           <Card.Root width="50%">
             <Card.Body>
               {/* Preview de la remera */}
