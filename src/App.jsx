@@ -1,4 +1,5 @@
 import { Card, Container, Flex, Heading } from "@chakra-ui/react";
+import { ColorModeButton } from "./components/ui/color-mode";
 import { DataContextProvider } from "./context/DataContext";
 import { LeftPanel } from "./components/left-panel/left-panel";
 import { RightPanel } from "./components/right-panel/right-panel";
@@ -47,9 +48,15 @@ const App = () => {
   return (
     <DataContextProvider value={contextValue}>
       <Container width="100%">
-        <Heading size="4xl" mb="1em" mt="1em">
-          Modificá tu remera 👕
-        </Heading>
+        <Flex justify="space-between" width="100%" align="center">
+          <Heading size="4xl" mb="1em" mt="1em">
+            Modificá tu remera 👕
+          </Heading>
+          <ColorModeButton
+            color={{ _dark: "white", base: "black" }}
+            bg={{ base: "white", _dark: "black" }}
+          />
+        </Flex>
 
         <Flex
           width="100%"
