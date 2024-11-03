@@ -5,16 +5,16 @@ import { useDropzone } from "react-dropzone";
 import { useMemo } from "react";
 
 const baseStyle = {
-  flex: 1,
-  display: "flex",
-  flexDirection: "column",
   alignItems: "center",
-  padding: "20px",
-  borderWidth: 2,
-  borderRadius: "7px",
   borderColor: "#6f6e6e",
+  borderRadius: "7px",
   borderStyle: "dashed",
+  borderWidth: 2,
+  display: "flex",
+  flex: 1,
+  flexDirection: "column",
   outline: "none",
+  padding: "20px",
   transition: "border .24s ease-in-out",
 };
 
