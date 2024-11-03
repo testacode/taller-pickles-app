@@ -1,4 +1,4 @@
-import { Card, Container, Flex } from "@chakra-ui/react";
+import { Card, Container, Stack } from "@chakra-ui/react";
 import { DataContextProvider } from "./context/DataContext";
 import { Header } from "./components/header/header";
 import { LeftPanel } from "./components/left-panel/left-panel";
@@ -51,20 +51,26 @@ const App = () => {
     <DataContextProvider value={contextValue}>
       <Container width="100%" className="taller-pickles-app">
         <Header />
-        <Flex className="body" width="100%" gap="1em" alignContent="flex-start">
-          <Card.Root width="50%">
+        <Stack
+          alignContent="flex-start"
+          className="body"
+          direction={["column", "row"]}
+          gap="1em"
+          width="100%"
+        >
+          <Card.Root width={["100%", "50%"]}>
             <Card.Body>
               {/* Preview de la remera */}
               <LeftPanel />
             </Card.Body>
           </Card.Root>
-          <Card.Root width="50%">
+          <Card.Root width={["100%", "50%"]}>
             <Card.Body>
               {/* Controles de customizacion */}
               <RightPanel />
             </Card.Body>
           </Card.Root>
-        </Flex>
+        </Stack>
       </Container>
     </DataContextProvider>
   );
