@@ -8,6 +8,7 @@ import { useMemo, useReducer } from "react";
 
 const initialState = {
   shirt_side: SHIRT_SIDE.FRONT,
+  color: "blanco",
   [SHIRT_SIDE.FRONT]: {
     agrega_texto_arriba: false,
     agrega_texto_abajo: false,
@@ -39,10 +40,11 @@ const App = () => {
 
   console.log({
     shirt_side: data.shirt_side,
-    frente: { ...data[SHIRT_SIDE.FRONT] },
-    espalda: { ...data[SHIRT_SIDE.BACK] },
+    color: data.color,
     file_front: data[SHIRT_SIDE.FRONT].imagen,
     file_back: data[SHIRT_SIDE.BACK].imagen,
+    frente: { ...data[SHIRT_SIDE.FRONT] },
+    espalda: { ...data[SHIRT_SIDE.BACK] },
   });
 
   return (
