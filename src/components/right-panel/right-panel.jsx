@@ -1,6 +1,6 @@
 import { ImageTab } from "./image-tab";
 import { LuImage, LuPalette, LuSettings2 } from "react-icons/lu";
-import { Tabs } from "@chakra-ui/react";
+import { Box, Tabs } from "@chakra-ui/react";
 // import { useDataContext } from "../../context/DataContext";
 import { useMemo } from "react";
 import { ColorTab } from "./color-tab";
@@ -8,7 +8,9 @@ import { SettingsTab } from "./settings-tab";
 
 const TabTrigger = ({ value, icon: Icon, label }) => (
   <Tabs.Trigger value={value} justifyContent="center">
-    <Icon />
+    <Box display={["none", "block"]}>
+      <Icon />
+    </Box>
     {label}
   </Tabs.Trigger>
 );
@@ -31,9 +33,8 @@ export const RightPanel = () => {
       <Tabs.List
         alignItems="center"
         bg="bg.muted"
-        gap="1em"
-        justifyContent="center"
-        p="1"
+        gap={["none", "1em"]}
+        p={[0.5, 1]}
         rounded="l3"
         width="100%"
       >
