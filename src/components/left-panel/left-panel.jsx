@@ -1,9 +1,9 @@
 import { Center, Flex, Text } from "@chakra-ui/react";
-import { useDataContext } from "../../context/DataContext";
-import { Switch } from "../ui/switch";
 import { ImagePreview } from "./image-preview";
-import { useCallback } from "react";
 import { SHIRT_SIDE } from "../../constants";
+import { Switch } from "../ui/switch";
+import { useCallback } from "react";
+import { useDataContext } from "../../context/DataContext";
 
 export const LeftPanel = () => {
   const { data, updateData } = useDataContext();
