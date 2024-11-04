@@ -4,26 +4,8 @@ import { Header } from "./components/header/header";
 import { LeftPanel } from "./components/left-panel/left-panel";
 import { RightPanel } from "./components/right-panel/right-panel";
 import { SHIRT_SIDE } from "./constants";
+import { useColorModeValue } from "./components/ui/color-mode";
 import { useMemo, useReducer } from "react";
-
-const initialState = {
-  shirt_side: SHIRT_SIDE.FRONT,
-  color: "blanco",
-  [SHIRT_SIDE.FRONT]: {
-    agrega_texto_arriba: false,
-    agrega_texto_abajo: false,
-    texto_arriba: "Texto de arriba",
-    texto_abajo: "Texto de abajo",
-    imagen: null,
-  },
-  [SHIRT_SIDE.BACK]: {
-    agrega_texto_arriba: false,
-    agrega_texto_abajo: false,
-    texto_arriba: "Texto de arriba",
-    texto_abajo: "Texto de abajo",
-    imagen: null,
-  },
-};
 
 const reducer = (data, partialData) => ({
   ...data,
@@ -31,6 +13,29 @@ const reducer = (data, partialData) => ({
 });
 
 const App = () => {
+  const initialState = {
+    shirt_side: SHIRT_SIDE.FRONT,
+    color: "blanco",
+    [SHIRT_SIDE.FRONT]: {
+      agrega_texto_arriba: false,
+      agrega_texto_abajo: false,
+      texto_arriba: "Texto de arriba",
+      texto_abajo: "Texto de abajo",
+      texto_arriba_color: useColorModeValue("black", "white"),
+      texto_abajo_color: useColorModeValue("black", "white"),
+      imagen: null,
+    },
+    [SHIRT_SIDE.BACK]: {
+      agrega_texto_arriba: false,
+      agrega_texto_abajo: false,
+      texto_arriba: "Texto de arriba",
+      texto_abajo: "Texto de abajo",
+      texto_arriba_color: useColorModeValue("black", "white"),
+      texto_abajo_color: useColorModeValue("black", "white"),
+      imagen: null,
+    },
+  };
+
   const [data, updateData] = useReducer(reducer, initialState);
 
   const contextValue = useMemo(
@@ -38,7 +43,7 @@ const App = () => {
     [data, updateData]
   );
 
-  console.log({
+  console.log("App: ", {
     shirt_side: data.shirt_side,
     color: data.color,
     file_front: data[SHIRT_SIDE.FRONT].imagen,

@@ -1,6 +1,6 @@
-import { COLOR_REMERA } from "../../constants";
+import { REMERA_TELA_COLOR } from "../../../constants";
 import { Flex, IconButton, Text } from "@chakra-ui/react";
-import { useDataContext } from "../../context/DataContext";
+import { useDataContext } from "../../../context/DataContext";
 
 export const ColorTab = () => {
   const { data, updateData } = useDataContext();
@@ -18,8 +18,8 @@ export const ColorTab = () => {
         width="100%"
         wrap="wrap"
       >
-        {Object.keys(COLOR_REMERA).map((ITEM) => {
-          const { VALUE, LABEL, STYLE } = COLOR_REMERA[ITEM];
+        {Object.keys(REMERA_TELA_COLOR).map((ITEM) => {
+          const { VALUE, LABEL, STYLE } = REMERA_TELA_COLOR[ITEM];
           const isColorSelected = color === VALUE;
 
           return (

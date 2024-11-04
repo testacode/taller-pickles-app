@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react";
-import { useDataContext } from "../../context/DataContext";
+import { useDataContext } from "../../../context/DataContext";
 
 export const SettingsTab = () => {
   const { data, updateData } = useDataContext();

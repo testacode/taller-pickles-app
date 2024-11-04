@@ -1,10 +1,10 @@
-import { ImageTab } from "./image-tab";
+import { ImageTab } from "./image-tab/image-tab";
 import { LuImage, LuPalette, LuSettings2 } from "react-icons/lu";
 import { Box, Tabs } from "@chakra-ui/react";
 // import { useDataContext } from "../../context/DataContext";
 import { useMemo } from "react";
-import { ColorTab } from "./color-tab";
-import { SettingsTab } from "./settings-tab";
+import { ColorTab } from "./color-tab/color-tab";
+import { SettingsTab } from "./settings-tab/settings-tab";
 
 const TabTrigger = ({ value, icon: Icon, label }) => (
   <Tabs.Trigger value={value} justifyContent="center">

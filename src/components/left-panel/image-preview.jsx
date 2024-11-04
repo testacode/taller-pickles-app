@@ -1,5 +1,5 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
-import { COLOR_REMERA, SHIRT_SIDE } from "../../constants";
+import { REMERA_TELA_COLOR, SHIRT_SIDE } from "../../constants";
 import { useCallback } from "react";
 import { useDataContext } from "../../context/DataContext";
 import remeraEspalda from "../../assets/remera-espalda.png";
@@ -13,36 +13,44 @@ export const ImagePreview = () => {
   const getShirtColorStyle = (value) => {
     const STYLE = value.toUpperCase();
 
-    return COLOR_REMERA[STYLE].STYLE;
+    return REMERA_TELA_COLOR[STYLE].STYLE;
   };
 
   return (
     <Flex className="image-preview" flexDir="column" position="relative">
       {data[shirt_side].agrega_texto_arriba && (
-        <Texto texto={data[shirt_side].texto_arriba} position="top" />
+        <Texto
+          color={data[shirt_side].texto_arriba_color}
+          position="top"
+          texto={data[shirt_side].texto_arriba}
+        />
       )}
       {data[shirt_side].imagen && <Imagen src={data[shirt_side].imagen} />}
       <Box
-        position="absolute"
-        top={0}
-        left={0}
-        right={0}
-        bottom={0}
         background={getShirtColorStyle(color)}
-        opacity={0.7}
+        bottom={0}
+        left={0}
         mixBlendMode="multiply"
+        opacity={0.7}
+        position="absolute"
+        right={0}
+        top={0}
       />
       <Image
         src={isShirtSideFront(shirt_side) ? remeraFrente : remeraEspalda}
       />
       {data[shirt_side].agrega_texto_abajo && (
-        <Texto texto={data[shirt_side].texto_abajo} position="bottom" />
+        <Texto
+          color={data[shirt_side].texto_abajo_color}
+          position="bottom"
+          texto={data[shirt_side].texto_abajo}
+        />
       )}
     </Flex>
   );
 };
 
-const Texto = ({ texto, position }) => {
+const Texto = ({ texto, position, color }) => {
   const positions = {
     top: { top: "30%", bottom: "auto" },
     bottom: { top: "auto", bottom: "30%" },
@@ -56,7 +64,7 @@ const Texto = ({ texto, position }) => {
       transform="translate(-50%, -50%)"
       {...positions[position]}
     >
-      <Text fontWeight="bold" color="black">
+      <Text fontWeight="bold" color={color || "black"}>
         {texto}
       </Text>
     </Box>
