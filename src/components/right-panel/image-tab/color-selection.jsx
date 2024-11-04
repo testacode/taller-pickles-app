@@ -29,17 +29,17 @@ export const ColorSelection = ({ textType }) => {
           aria-label={`Elegi un color para el texto de ${textSide}`}
           size="2xs"
         >
-          <LuPalette color={textColor} title={`Color elegido: ${label}`} />
+          <LuPalette title={`Color elegido: ${label}`} />
         </IconButton>
       </PopoverTrigger>
       <PopoverContent bg="bg.muted">
         <PopoverBody>
-          <PopoverTitle color="red" mb="1em">
+          <PopoverTitle mb="1em">
             <Heading as="h2" size="md">
               Color del texto
             </Heading>
           </PopoverTitle>
-          <Flex color="red" wrap="wrap" gap="4">
+          <Flex wrap="wrap" gap="4">
             {Object.keys(REMERA_TEXT_COLOR).map((color) => {
               const { label: colorLabel, value: colorValue } =
                 REMERA_TEXT_COLOR[color];
@@ -68,13 +68,13 @@ export const ColorSelection = ({ textType }) => {
                         left="50%"
                       >
                         <LuCheckCircle
-                          color={colorValue === "white" ? "green" : "white"}
+                          color={colorValue === "white" ? "black" : "white"}
                         />
                       </Box>
                     )}
                     <Box h="30px" w="30px" bgColor={colorValue} p="2em" />
                   </Flex>
-                  <Text>{colorLabel}</Text>
+                  <Text fontWeight="500">{colorLabel}</Text>
                 </Flex>
               );
             })}
