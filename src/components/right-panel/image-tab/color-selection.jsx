@@ -72,7 +72,13 @@ export const ColorSelection = ({ textType }) => {
                         />
                       </Box>
                     )}
-                    <Box h="30px" w="30px" bgColor={colorValue} p="2em" />
+                    <Box
+                      h="30px"
+                      w="30px"
+                      bgColor={colorValue}
+                      p="2em"
+                      rounded="full"
+                    />
                   </Flex>
                   <Text fontWeight="500">{colorLabel}</Text>
                 </Flex>
