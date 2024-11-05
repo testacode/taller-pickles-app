@@ -2,7 +2,7 @@ import { ColorModeProvider } from "./components/ui/color-mode";
 import { createRoot } from "react-dom/client";
 import { Provider } from "./components/ui/provider";
 import { StrictMode } from "react";
-import App from "./app.jsx";
+import App from "./apps.jsx";
 
 import "./index.css";
 
