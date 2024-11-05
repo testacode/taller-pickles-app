@@ -16,6 +16,7 @@ const App = () => {
   const initialState = {
     shirt_side: SHIRT_SIDE.FRONT,
     color: "blanco",
+    price: "",
     [SHIRT_SIDE.FRONT]: {
       agrega_texto_arriba: false,
       agrega_texto_abajo: false,
@@ -34,6 +35,18 @@ const App = () => {
       texto_abajo_color: useColorModeValue("black", "white"),
       imagen: null,
     },
+    customer: {
+      name: "",
+      email: "",
+      phone: "",
+      address: "",
+      city: "",
+      province: "",
+      postal_code: "",
+      country: "ARG",
+      whatsapp: false,
+      paymentType: "",
+    },
   };
 
   const [data, updateData] = useReducer(reducer, initialState);
@@ -46,6 +59,7 @@ const App = () => {
   console.log("App: ", {
     shirt_side: data.shirt_side,
     color: data.color,
+    customer: data.customer,
     file_front: data[SHIRT_SIDE.FRONT].imagen,
     file_back: data[SHIRT_SIDE.BACK].imagen,
     frente: { ...data[SHIRT_SIDE.FRONT] },
